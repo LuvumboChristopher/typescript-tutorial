@@ -1,21 +1,46 @@
-/**
- * No es obligatorioindicar que tipo son porque typescript
- * lo reconoce directamente
- */
+//Explicit types
 
-let person: String = 'Chrsitopher';
-let age: Number = 23;
+/*Cuando no hemos iniciado la variable pero 
+queremos indicar el typo de datos que va a recibir */
+let age: number;
+let isUnderAge: boolean;
 
-/*
-* En el parametro que pasamos indicamos que es de tipo numero
-* sino no va a compilarse
-*/ 
-const monthsCalc = (year: number) => year * 12;
-/**
- * Generaria un error ya que 'Helo es un String y esta indicado que el parametro
- * a recibir tiene que ser un numero por lo qe no se compilara
- */
+//Arrays
+let adults: string[];
 
-//console.log(circ('hello'));
+//Si inicio el array con numero me saldra un error
+//adults = [14,'Christopher','Goku','Vegeta']
 
-console.log(monthsCalc(23));
+//Union Types
+
+/* Si queremos tener un array mixto antes de iniciar el array
+tenemos que indicarlo con un Union type*/
+
+let mixedArray: (string|number|boolean)[] =[];
+mixedArray.push('Christopher');
+mixedArray.push(25);
+mixedArray.push(false);
+
+//Object
+
+let house: object;
+
+house = {
+    adress: 'Privet drive street 4',
+    city: 'London',
+    country: 'England'
+}
+
+//El el caso en el que queramo crear un objeto con indicaciones precisas
+
+let person: {
+    name: string,
+    age: number,
+    isDeveloper: boolean,
+}
+
+person = {
+    name: 'HarryPotter',
+    age: 15,
+    isDeveloper: false,
+}

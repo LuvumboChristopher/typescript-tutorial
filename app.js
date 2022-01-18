@@ -1,17 +1,30 @@
-/**
- * No es obligatorioindicar que tipo son porque typescript
- * lo reconoce directamente
- */
-var person = 'Chrsitopher';
-var age = 23;
-/*
-* En el parametro que pasamos indicamos que es de tipo numero
-* sino no va a compilarse
-*/
-var monthsCalc = function (year) { return year * 12; };
-/**
- * Generaria un error ya que 'Helo es un String y esta indicado que el parametro
- * a recibir tiene que ser un numero por lo qe no se compilara
- */
-//console.log(circ('hello'));
-console.log(monthsCalc(23));
+//Explicit types
+/*Cuando no hemos iniciado la variable pero
+queremos indicar el typo de datos que va a recibir */
+var age;
+var isUnderAge;
+//Arrays
+var adults;
+//Si inicio el array con numero me saldra un error
+//adults = [14,'Christopher','Goku','Vegeta']
+//Union Types
+/* Si queremos tener un array mixto antes de iniciar el array
+tenemos que indicarlo con un Union type*/
+var mixedArray = [];
+mixedArray.push('Christopher');
+mixedArray.push(25);
+mixedArray.push(false);
+//Object
+var house;
+house = {
+    adress: 'Privet drive street 4',
+    city: 'London',
+    country: 'England'
+};
+//El el caso en el que queramo crear un objeto con indicaciones precisas
+var person;
+person = {
+    name: 'HarryPotter',
+    age: 15,
+    isDeveloper: false
+};
