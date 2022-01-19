@@ -1,46 +1,17 @@
-//Explicit types
+//Uso del typo Any
 
-/*Cuando no hemos iniciado la variable pero 
-queremos indicar el typo de datos que va a recibir */
-let age: number;
-let isUnderAge: boolean;
+/*No tendremos ningun tipo de erros ya que con el tipo any puede ser
+de cualquier tipo de dato, lo que nos qui ta todos los beneficios de
+typescript de cierta manera*/
 
-//Arrays
-let adults: string[];
+//Podemos usarlo cuando no sabemos es tipo de dato cque recibiremos
+let age: any;
+age = 25;
+age = true;
 
-//Si inicio el array con numero me saldra un error
-//adults = [14,'Christopher','Goku','Vegeta']
+//Lo mismo ocurre con los array y los demas tipos de datos aceptaran cualquier tipo de dato
+let mixedArray: any[] = [];
 
-//Union Types
+mixedArray.push('France', 'Spain', true, 25 );
 
-/* Si queremos tener un array mixto antes de iniciar el array
-tenemos que indicarlo con un Union type*/
-
-let mixedArray: (string|number|boolean)[] =[];
-mixedArray.push('Christopher');
-mixedArray.push(25);
-mixedArray.push(false);
-
-//Object
-
-let house: object;
-
-house = {
-    adress: 'Privet drive street 4',
-    city: 'London',
-    country: 'England'
-}
-
-//El el caso en el que queramo crear un objeto con indicaciones precisas
-
-let person: {
-    name: string,
-    age: number,
-    isDeveloper: boolean,
-}
-
-person = {
-    name: 'HarryPotter',
-    age: 15,
-    isDeveloper: false,
-}
+console.log(mixedArray);
