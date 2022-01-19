@@ -1,38 +1,31 @@
-// Ojo aqui las funciones empiezan con mayusculas
+// Para evitar repetir codigo una y otra vez podemos creamos nuestros propios tipos
+type StringOrNum = string | number;
 
-let sayHello: Function;
+let city: StringOrNum;
 
-sayHello = (name: string)=> {
-    console.log(` Hello , ${name}`)
+city = 69100;
+
+let age: StringOrNum = 'Twentyfive';
+
+//Creamos el tipo una vez y lo utilizamos repetidas veces en el codigo
+
+// igual ocuree con los objetos
+
+type objectName = {
+    name: string,
+    age: number,
+    country: string,
+};
+
+const sayHello = (person: objectName) => {
+    const {name, age, country} = person;
+    console.log(`Hey! my name is ${name} i'm from ${country} and i'm ${age} old`)
 }
 
-//En este caso de dara erro ya que intento pasar un string como parametro cuando he indicado que seria un numero
-const add = (a: number, b:number)=> {
-    console.log(a + b);
+let me = {
+    name: 'Christopher',
+    age: 25,
+    country: 'Spain'
 }
 
-//add(2,'4');
-
-// Aparicion de la interoogacion que hace que el parametro sea opcional, ojo si usas parametros opcionales siempre ponerlos al final
-
-const fullName = (name: string, lastName?: string)=>{
-    console.log(`${name}  ${lastName}`)
-};
-
-// En este caso aunque no haya puesto el appelido no le sale error ya que es opcional, el rsultado sera christopher UNDEFINED
-fullName('christopher');
-
-//Caso del uso de un valor por defecto
-const fullName2 = (name: string, lastName: string = 'Doe')=>{
-    console.log(`${name}  ${lastName}`);
-};
-
-/* En este caso como no he indicado un valor para lasTName pero si lo he indicado un valor en el caso de no introducir
-nada , el resultado sera Christopher Doe*/
-fullName2('christopher');
-
-//Cuando usamos return en una funcion podemos tipar el resutado aunque es automatico, si no definimos un return el tipo sera void
-
-const minus = (a: number, b: number): number => {
-    return a-b;
-};
+sayHello(me);
