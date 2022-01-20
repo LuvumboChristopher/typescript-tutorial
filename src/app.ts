@@ -1,21 +1,31 @@
-//Function signature
-/*Le decimos a la funcion a que se tiene que parecer y en el caso en el que no soga los mismos patrones
-nos enviaria un erro */
+// Con elemento como ! o ? indicamos a ts que esos elementos si existen ya que el no puede leer en nuestro documento html
 
-//Ejemplo 1
-let greet:(a: string, b: string) => void;
+const anchor = document.querySelector('a');
+console.log(anchor?.href);
 
-greet = (name: string, greeting: string) => {
-    console.log(`${name} says ${greeting}`)
-};
 
-//Ejemplo 2
-let calc: (a: number, b: number) => number;
+// En este caso recuperamos el formulario
+const form = document.querySelector('form')!;
 
-/*
-calc = (n1: number, n2: string): number {
-    return n1 + n2;
-}
-*/
+/* Pero en este tabn por lo tanto ts lo detecta como un elmenento mas y no un formuario
+para evitar eso podemo s haer lo siguiente*/
 
-//No sigue el atron por lo que resulta en erro ya que es segunpo parametro es de tipo string
+const form1 = document.querySelector('.new-item-form') as HTMLFormElement;
+
+
+const type = document.querySelector('#type') as HTMLInputElement;
+const tofrom = document.querySelector('#tofrom') as HTMLInputElement;
+const details = document.querySelector('#details') as HTMLInputElement;
+const amount = document.querySelector('#amount') as HTMLInputElement;
+
+form.addEventListener('submit', (e: Event) => {
+  e.preventDefault();
+
+  console.log(
+    type.value, 
+    tofrom.value, 
+    details.value, 
+    //Uso de valueAsNumber pare recuperar el valor en formato string y no en numero
+    amount.valueAsNumber
+  );
+});
